@@ -1,6 +1,8 @@
 const { rejects } = require('assert')
 const connection = require('../db.js')
 const bcrypt = require("bcrypt")
+const { resolve } = require('path')
+const { error } = require('console')
 let salrouds = 10  // 4 - 32 --> 7 to 10 mins
 function registor(req){
     const {id , username , password} = req.body
@@ -51,4 +53,17 @@ function userlogin(req){
    })
 }
 
-module.exports = {registor ,userlogin}
+function getUsers (){
+    return new Promise((resolve , reject)=>{
+        let query = 'select * from users'
+        connection.query(query ,(err,data)=>{
+            if(err){
+                return reject(error)
+            }else{
+                return resolve(data)
+            }
+        })
+    })
+}
+
+module.exports = {registor ,userlogin , getUsers}

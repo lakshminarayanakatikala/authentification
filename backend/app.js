@@ -1,11 +1,13 @@
 
 const express = require("express")
+const cors = require('cors')
 const { route } = require("./routes/userroute")
 const app = express()
 let port = 3005
 
 
 app.use(express.json())
+app.use(cors())
 app.use("/auth" , route)
 
 app.get("/" , (req,res)=>{
