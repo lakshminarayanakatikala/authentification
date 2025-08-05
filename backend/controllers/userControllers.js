@@ -1,7 +1,4 @@
 const { registor , userlogin , getUsers} = require("../module/authmodule.js");
-
-const fs = require("fs")
-
 let reg = async (req, res) => {
   try {
     let data = await registor(req);
@@ -14,21 +11,14 @@ let reg = async (req, res) => {
 let login =async (req, res) => {
   try {
     let data = await userlogin(req);
-    fs.writeFile('test.txt', JSON.stringify(data), (err) => {
-    if (err) throw err;
-      res.send({
-          msg: "error writing file",
-          error: err.message
-        });
-  });
     res.send({
       msg : "login sucessfully",
       data:data
     });
   } catch (err) {
     res.send({
-      msg : "error",
-      error:err.message
+      msg :err,
+      error:"login error"
     });
   }
 };
@@ -44,7 +34,7 @@ let getUsersData =async (req, res) => {
   } catch (err) {
     res.send({
       msg : "error",
-      error:err.message
+      error:err
     });
   }
 };

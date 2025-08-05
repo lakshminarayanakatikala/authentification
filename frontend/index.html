@@ -7,28 +7,19 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="register-container">
-        <form id="register-form">
-            <input type="number" placeholder="give me id" id="userid" >
-            <input type="text" placeholder="give me email" id="username">
-            <input type="password" placeholder="enter your password" id="password">
-            <input type="submit" value="Register" id="submitbtn">
-        </form>
-        <p>Already have an account?
-            <a href="#" id="show-login">Login</a>
-        </p>
-    </div>
-    <div id="login-container" style="display:none;">
-        <form id="login-form">
-            <input type="text" placeholder="give me email" id="login_username">
-            <input type="password" placeholder="enter your password" id="login_password">
-            <input type="submit" value="Login" id="logintbtn">
-        </form>
-        <p>Don't have an account?
-            <a href="#" id="show-register">Register</a>
-        </p>
-    </div>
-    <script src="./script.js"></script>
-</body>
+    <form>
+        <input type="number" placeholder="give me id" id="userid" >
+        <input type="text" placeholder="give me email" id="username">
+        <input type="password" placeholder="enter your password" id="password">
+        <input type="submit" value="submit" id="submitbtn">
+    </form>
 
+    <form>
+        <input type="text" placeholder="give me email" id="login_username">
+        <input type="password" placeholder="enter your password" id="login_password">
+        <input type="submit" value="submit" id="logintbtn">
+    </form>
+
+    <script src="./script.js"></script>
+</body>
 </html>
